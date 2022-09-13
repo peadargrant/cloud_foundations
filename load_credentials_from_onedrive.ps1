@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 # Load AWS credentials from OneDrive (mapped by college)
 # Peadar Grant
 

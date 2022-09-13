@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 # Save AWS credentials to OneDrive (mapped by college)
 # Peadar Grant
 # Use at your own risk!
