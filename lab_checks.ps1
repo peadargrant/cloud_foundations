@@ -32,6 +32,19 @@ else {
 
 }
 
+# confirm aws region
+$required_region = "eu-west-1"
+Write-Host "checking region is $required_region ... " -NoNewline
+$region = (aws configure get region)
+if ( $required_region -eq $region) {
+    Write-Host "OK" -ForegroundColor Green
+}
+else {
+    Write-Host "region is $region" -ForegroundColor Red
+    Write-Host " ... fix this error and re-run"
+    Return
+}
+
 # ensure that the aws CLI is operational
 $output = (aws ec2 describe-host-reservations)
 Write-Host "output from aws:"
