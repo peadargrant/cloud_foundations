@@ -29,6 +29,8 @@ Sign up for an AWS account by visiting the link:\\
 
 There is a 5-step process to signing up.
 
+For the account type you should choose Personal.
+
 \section{Log in to the console}
 
 Make sure that you can login to the AWS console using the credentials from the \autoref{sec:signup}.
@@ -37,177 +39,15 @@ The AWS console can be accessed at:\\
 
 Bookmark the AWS console link in your Browser. You will need it often.
 
-\section{Billing alarm}
 
-As stated in \autoref{sec:charges} we will aim to stay within the free tier where possible.
-To avoid any unexpected charges, you will set up a Billing alarm on your account.
-This uses a service named CloudWatch.
-You will also familiarise yourself with using AWS documentation to help you work with AWS.
-The lab instructions \textit{will NOT} provide step-by-step guides!
+\subsection{Region setup}
+\label{sec:region-setup}
 
-Visit the \href{https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html}{documentation for CloudWatch Billing alarms}.
+AWS is divided into a number of regions.
 
-\subsection{Enabling billing alerts}
+On the top right of the AWS Console, it will probably say \textit{N Virginia}.
+Click this and change it to Ireland (eu-west-1).
+The college firewall only allows some connections we need for our work in this module to AWS resources in the eu-west-1 region.
 
-Follow the 4 steps under ``To enable the monitoring of estimated charges''.
+We will look at regions again as part of our study of Global Infrastructure.
 
-You should also turn on the ``Receive Free Tier Usage Alerts'' tickbox.
-
-\subsection{Creating a billing alarm}
-
-Follow instructions 1 to 10 (of the 13) under ``To create a billing alarm using the CloudWatch console''.
-Recommended alarm level is 10 US dollars.
-
-When you have done the 10 steps, click ``Create New Topic''.
-A default Topic name will be created.
-Press Create Topic.
-
-Fill in your e-mail address in the box.
-Then press Next to go on to the next screen.
-
-Set the name to \texttt{BILLING\_ALARM} and continue to the next step. 
-
-Then press Create Alarm.
-You should see a green bar with a message like \texttt{Successfully created alarm BILLING\_ALARM}.
-
-Check your e-mail and confirm the subscription.
-
-\subsection{Checking your billing alarm}
-
-To confirm that your billing alarm has been set up, you will run a provided script.
-\begin{enumerate}
-\item Click the CloudShell icon \texttt{(\textrangle\_)}.
-  This will open a command shell, which will take some time to initialise.
-
-\item Wait until you see something like:
-\begin{verbatim}
-[cloudshell-user@ip-10-0-187-141 ~]$ 
-\end{verbatim}
-
-\item Click the Actions button and then Upload File.
-
-\item Select the file \texttt{check\_billing\_alarm.py} and hit Upload.
-  Wait for the upload to complete.
-
-\item Then type:
-\begin{verbatim}
-python3 ./check_billing_alarm.py
-\end{verbatim}
-
-\item Confirm that your billing alarm has been set up from the script.
-  If not, fix it and re-run the script to confirm. 
-
-\end{enumerate}
-  
-% \section{Setup AWS command-line
-% interface}\label{setup-aws-command-line-interface}
-
-% The AWS Command Line Interface is a client program that runs on your
-% local PC to allow you to manage AWS resources from the command-line
-% (PowerShell, Bash). We will use the command-line extensively in this
-% module.
-
-% \subsection{PowerShell execution
-% policy}\label{powershell-execution-policy}
-
-% PowerShell by default will not allow scripts to run that were downloaded
-% from online. The following command will change this behaviour:
-
-% \begin{verbatim}
-% Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-% \end{verbatim}
-
-% \subsection{AWS CLI installation}\label{aws-cli-installation}
-
-% If you're on a lab computer OR if you already have the AWS CLI
-% installed, then skip ahead to .
-
-% Install the command-line tools from \url{https://aws.amazon.com/cli/}
-
-% \subsection{Config file setup}\label{sec:config-file-setup}
-
-% There is a script file \texttt{setup\_config\_file.ps1} that will setup
-% your configuration file for you. Run it once.
-
-% \subsection{Access key setup}\label{sec:access-key-setup}
-
-% \textbf{Needs to be done EVERY time you log in on a student account!}
-
-% Log in to AWS academy. Go to
-% \url{https://awsacademy.instructure.com/courses/8294/modules/items/794040}.
-
-% Hit the \emph{AWS Details} button. Look for \emph{Cloud Access} and
-% \emph{AWS CLI} on the right. Click \emph{Show}. Copy this.
-
-% \subsubsection{PowerShell}\label{powershell}
-
-% You can paste the above using:
-
-% \begin{verbatim}
-% Get-Clipboard | Out-File ~/.aws/credentials
-% \end{verbatim}
-
-% Alternatively you can use the script:
-
-% \begin{verbatim}
-% .\paste_credentials.ps1
-% \end{verbatim}
-
-% \subsubsection{Manual alternative}\label{manual-alternative}
-
-% Paste the contents into a file named EXACTLY
-
-% \begin{verbatim}
-% C:\Users\yourusername\.aws\credentials
-% \end{verbatim}
-
-% (no \texttt{.txt} etc at the end).
-
-% \subsection{Check CLI configured}\label{check-cli-configured}
-
-% To check that the AWS CLI is correctly configured, you can try running
-% the command:
-
-% \begin{verbatim}
-% aws ec2 describe-instances
-% \end{verbatim}
-
-% If it shows something similar to:
-
-% \begin{verbatim}
-% {
-%     "Reservations": []
-% }
-% \end{verbatim}
-
-% then the AWS CLI is working OK.
-
-% \section{Mac, Linux, UNIX users}\label{mac-linux-unix-users}
-
-% \emph{Windows users can ignore this section.}
-
-% Mac, Linux, Unix users will have no problems installing the AWS CLI, and
-% the commands work identically to those on Windows.
-
-% The difference between Mac/Linux and Windows centres on the use of
-% Bash/zsh by Mac/Linux/UNIX vs PowerShell on Windows. The AWS CLI is
-% perfectly scriptable using Bash, particularly in conjunction with
-% \texttt{jq} to parse JSON. However, some of the scripts you will be
-% provided with in this module will be PowerShell only due to time
-% constraints.
-
-% The good news is that PowerShell Core 7 can be installed easily on a Mac
-% with no issues. You \emph{do not} need a Windows VM on your Mac to use
-% any of the PowerShell or AWS commands in \emph{this} course. Please go
-% to the \href{https://github.com/PowerShell/PowerShell}{PowerShell page
-% on GitHub} for instructions.
-
-% When you have PowerShell installed, open the Terminal app and type
-% \texttt{pwsh} and you'll be at a PowerShell prompt. Repeat the
-% \texttt{aws\ ec2\ describe-instances} command to confirm that the
-% \texttt{aws} command is available in PowerShell.
-
-% \section{Check script}\label{check-script}
-
-% Run the \texttt{lab\_checks.ps1} powershell script to confirm that your
-% environment is set up correctly.

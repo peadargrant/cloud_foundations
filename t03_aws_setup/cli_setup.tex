@@ -1,0 +1,113 @@
+  
+% \section{Setup AWS command-line
+% interface}\label{setup-aws-command-line-interface}
+
+% The AWS Command Line Interface is a client program that runs on your
+% local PC to allow you to manage AWS resources from the command-line
+% (PowerShell, Bash). We will use the command-line extensively in this
+% module.
+
+% \subsection{PowerShell execution
+% policy}\label{powershell-execution-policy}
+
+% PowerShell by default will not allow scripts to run that were downloaded
+% from online. The following command will change this behaviour:
+
+% \begin{verbatim}
+% Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+% \end{verbatim}
+
+% \subsection{AWS CLI installation}\label{aws-cli-installation}
+
+% If you're on a lab computer OR if you already have the AWS CLI
+% installed, then skip ahead to .
+
+% Install the command-line tools from \url{https://aws.amazon.com/cli/}
+
+% \subsection{Config file setup}\label{sec:config-file-setup}
+
+% There is a script file \texttt{setup\_config\_file.ps1} that will setup
+% your configuration file for you. Run it once.
+
+% \subsection{Access key setup}\label{sec:access-key-setup}
+
+% \textbf{Needs to be done EVERY time you log in on a student account!}
+
+% Log in to AWS academy. Go to
+% \url{https://awsacademy.instructure.com/courses/8294/modules/items/794040}.
+
+% Hit the \emph{AWS Details} button. Look for \emph{Cloud Access} and
+% \emph{AWS CLI} on the right. Click \emph{Show}. Copy this.
+
+% \subsubsection{PowerShell}\label{powershell}
+
+% You can paste the above using:
+
+% \begin{verbatim}
+% Get-Clipboard | Out-File ~/.aws/credentials
+% \end{verbatim}
+
+% Alternatively you can use the script:
+
+% \begin{verbatim}
+% .\paste_credentials.ps1
+% \end{verbatim}
+
+% \subsubsection{Manual alternative}\label{manual-alternative}
+
+% Paste the contents into a file named EXACTLY
+
+% \begin{verbatim}
+% C:\Users\yourusername\.aws\credentials
+% \end{verbatim}
+
+% (no \texttt{.txt} etc at the end).
+
+% \subsection{Check CLI configured}\label{check-cli-configured}
+
+% To check that the AWS CLI is correctly configured, you can try running
+% the command:
+
+% \begin{verbatim}
+% aws ec2 describe-instances
+% \end{verbatim}
+
+% If it shows something similar to:
+
+% \begin{verbatim}
+% {
+%     "Reservations": []
+% }
+% \end{verbatim}
+
+% then the AWS CLI is working OK.
+
+% \section{Mac, Linux, UNIX users}\label{mac-linux-unix-users}
+
+% \emph{Windows users can ignore this section.}
+
+% Mac, Linux, Unix users will have no problems installing the AWS CLI, and
+% the commands work identically to those on Windows.
+
+% The difference between Mac/Linux and Windows centres on the use of
+% Bash/zsh by Mac/Linux/UNIX vs PowerShell on Windows. The AWS CLI is
+% perfectly scriptable using Bash, particularly in conjunction with
+% \texttt{jq} to parse JSON. However, some of the scripts you will be
+% provided with in this module will be PowerShell only due to time
+% constraints.
+
+% The good news is that PowerShell Core 7 can be installed easily on a Mac
+% with no issues. You \emph{do not} need a Windows VM on your Mac to use
+% any of the PowerShell or AWS commands in \emph{this} course. Please go
+% to the \href{https://github.com/PowerShell/PowerShell}{PowerShell page
+% on GitHub} for instructions.
+
+% When you have PowerShell installed, open the Terminal app and type
+% \texttt{pwsh} and you'll be at a PowerShell prompt. Repeat the
+% \texttt{aws\ ec2\ describe-instances} command to confirm that the
+% \texttt{aws} command is available in PowerShell.
+
+% \section{Check script}\label{check-script}
+
+% Run the \texttt{lab\_checks.ps1} powershell script to confirm that your
+% environment is set up correctly.
