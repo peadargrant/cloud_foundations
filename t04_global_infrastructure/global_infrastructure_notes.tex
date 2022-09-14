@@ -1,0 +1,117 @@
+\chapter{Infrastructure groups}
+\label{ch:infrastructure-groups}
+
+
+The major ``full service'' cloud providers separate their infrastructure
+geographically. This is done for two reasons. Firstly it lets cloud
+providers separate services in different geographical regions from each
+other for legal and business reasons. Secondly it facilitates redundancy
+in case of failures.
+
+\section{Regions}
+\label{sec:regions}
+
+\textbf{Regions} are \textbf{designed to separate data and resources} for business and legal reasons.
+
+\begin{itemize}
+\item
+  Regions function independently of each other. Essentially they are
+  different instances of the cloud provider's infrastructure.
+\item
+  Regions usually chosen such that legal environment is similar across
+  them: e.g.~varied FOI, GDPR, HIPAA, COPPA, data siphoning regulations.
+\item
+  Provider may introduce and update services to different regions at
+  different times.
+\item
+  Pricing may vary across regions for the same services.
+\item
+  Most cloud providers identify each region with both a human readable
+  name like ``EU (Ireland)'' and a code name like \texttt{eu-west-1}. We
+  will in class use only the code names for the most part.
+\item
+  \textbf{Must consider region when deploying most services!}
+\end{itemize}
+Also need to consider:
+\begin{description}
+\item[Non-geographic regions]
+are purpose-specific rather than geographical, like AWS GovCloud.
+\item[Geography]
+is a region-grouping that Azure use. AWS doesn't have a multi-region
+grouping concept.
+\end{description}
+\begin{itemize}
+\item
+  Legal environment is normally consistent across all regions in a
+  Geography.
+\end{itemize}
+
+\subsection{Region listing}
+A list of regions can be accessed in the CLI using
+\begin{verbatim}
+aws ec2 describe-regions
+\end{verbatim}
+
+
+\section{Availability zones}
+\label{sec:availability-zones}
+
+\textbf{Availability zones} are a \textbf{technical construct} to tolerate failures in physical
+infrastructure.
+
+\begin{itemize}
+\item
+  Each AZ normally consists of \(\ge 1\) data centres, each internally
+  redundant. The data centres in an AZ are connected to each other by
+  low-latency highly-redundant network links.
+\item
+  AZs are identified only by a code name derived from their region code
+  name. For the \texttt{eu-west-1} region the corresponding AZs are
+  \texttt{eu-west-1a}, \texttt{eu-west-1b} and \texttt{eu-west-1c}.
+\item
+  Note that the AZ code \texttt{a,\ b,\ c} mappings to physical AZs
+  \emph{are not} consistent across different AWS accounts. This is to
+  balance usage across AZs. (Many people will just choose the \texttt{a}
+  AZ since it appears first in the list.)
+\item
+  \textbf{In general, we need to consider AZs when deploying IaaS
+  services but NOT PaaS.}
+\end{itemize}
+
+\subsection{AZ listing}
+
+A list of availability zones can be accessed in the command-line interface:
+\begin{verbatim}
+aws ec2 describe-availability-zones
+\end{verbatim}
+
+\section{Edge locations}
+\label{sec:edge-locations}
+
+\textbf{Edge locations} are an entirely parallel structure provididing access points and edge caching for users of customer applications.
+\begin{itemize}
+\item These are normally a separate set of locations to the provider's regions/AZs for customer use.
+\item Only encountered when using certain services (not this semester).
+\end{itemize}
+
+
+
+\section{Infrastructure maps}
+\label{sec:infrastructure-maps}
+
+The providers all do a better job on constantly updating their global
+infrastructure maps than any lecture notes will:
+
+\begin{itemize}
+\item
+  \textbf{AWS:}
+  \url{https://aws.amazon.com/about-aws/global-infrastructure/}
+\item
+  \textbf{Google Cloud:} has a similar breakdown of regions and AZs to
+  AWS. \url{https://cloud.google.com/about/locations}
+\item
+  \textbf{Azure:}
+  \url{https://azure.microsoft.com/en-us/global-infrastructure/}
+\end{itemize}
+
+
