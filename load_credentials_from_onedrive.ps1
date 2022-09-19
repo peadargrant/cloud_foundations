@@ -25,7 +25,7 @@ Write-Host "exists" -ForegroundColor Green
 # Check if .aws folder exists locally
 Write-Host "checking for local .aws folder ... " -NoNewline
 if ( -not $(Test-Path -Path "~/.aws") ) {
-	New-Item -Path $NetworkDrive -Name $Folder -ItemType "directory"
+	New-Item -Path "~/.aws" -Name $Folder -ItemType "directory"
 	Write-Host "created" -ForegroundColor Yellow
 } else {
 	Write-Host "exists" -ForegroundColor Green
@@ -33,7 +33,10 @@ if ( -not $(Test-Path -Path "~/.aws") ) {
 
 # copy files
 Write-Host "copying files ... " -NoNewline
-Copy-Item -Path "$FolderPath/*" -Destination "~/.aws" -Recurse
+$FilesToCopy = @( 'credentials', 'config')
+foreach ( $FileToCopy in $FilesToCopy ) {
+	Copy-Item -Path "$FolderPath\$FileToCopy" -Destination "~/.aws" 
+}
 Write-Host "done" -ForegroundColor Green
 
 Write-Host "aws credentials copied to local machine" -ForegroundColor Green
