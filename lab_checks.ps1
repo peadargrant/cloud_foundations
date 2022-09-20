@@ -58,6 +58,28 @@ if ( "HostReservationSet" -in ($output | ConvertFrom-Json).PSObject.Properties.N
     Return
     }
 
+# check if key pair exists on AWS
+$KeyPairName='MAIN_KEY'
+Write-Host "checking for key pair named $KeyPairName ... " -NoNewline
+$KeyPairs = $(aws ec2 describe-key-pairs | ConvertFrom-Json).KeyPairs
+$KeyPairFound = $False
+foreach ( $KeyPair in $KeyPairs) {
+    if ( $KeyPair.KeyName -eq $KeyPairName )
+    {
+	$KeyPairFound=$True
+	break
+    }
+}
+if ( $KeyPairFound ) {
+    Write-Host "found" -ForegroundColor Green
+}
+else {
+    Write-Host "not found" -ForegroundColor Red
+    Write-Host "import the key pair and try again" -ForegroundColor Red
+    Return
+}
+
+
 # confirmation screen
 Write-Host "You have completed AWS setup lab" -ForegroundColor Green
 
