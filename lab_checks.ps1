@@ -2,6 +2,7 @@
 # Checks for cloud setup lab
 
 # commands expected
+Write-Host "checking for required software:" -ForegroundColor Yellow
 $commands = @( "git", "aws" )
 foreach ( $command in $commands ) {
     Write-Host "checking for $command command... " -NoNewline
@@ -14,6 +15,9 @@ foreach ( $command in $commands ) {
     }
 
 }
+Write-Host "Required software is installed." -ForegroundColor Green
+
+Write-Host "checking your AWS CLI setup:" -ForegroundColor Yellow
 
 # files expected
 $paths = @( "$HOME\.aws", "$HOME\.aws\config", "$HOME\.aws\credentials" )
@@ -50,13 +54,34 @@ $output = (aws ec2 describe-host-reservations)
 Write-Host "output from aws:"
 Write-Host $output 
 if ( "HostReservationSet" -in ($output | ConvertFrom-Json).PSObject.Properties.Name ) {
-    Write-Host "aws CLI works OK"
+    Write-Host "aws CLI works OK" -ForegroundColor Green
     }
     else
     {
     Write-Host "aws CLI not working, fix and re-run" -ForegroundColor Red
     Return
     }
+	
+Write-Host "AWS CLI setup looks good" -ForegroundColor Green
+
+Write-Host "checking your SSH keys:" -ForegroundColor Yellow
+
+# files expected
+$paths = @( "$HOME\.ssh", "$HOME\.ssh\id_rsa", "$HOME\.ssh\id_rsa.pub" )
+
+# check for expected files
+foreach ( $path in $paths ) {
+
+if ( Test-Path $path ) {
+    Write-Host "$path exists"
+}
+else {
+    Write-Host "$path does not exist" -ForegroundColor Red
+    Write-Host " ... load ssh key (or create them if you don't have them)"
+    Return
+    }
+
+}
 
 # check if key pair exists on AWS
 $KeyPairName='MAIN_KEY'
@@ -79,7 +104,8 @@ else {
     Return
 }
 
+Write-Host "SSH setup looks good" -ForegroundColor Green
 
 # confirmation screen
-Write-Host "You have completed AWS setup lab" -ForegroundColor Green
+Write-Host "Your setup is OK for working with AWS!" -ForegroundColor White -BackgroundColor DarkGreen
 
