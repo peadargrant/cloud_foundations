@@ -1,0 +1,86 @@
+\documentclass{pgnotes}
+
+\title{EC2 linux lab}
+
+\begin{document}
+
+\maketitle
+
+\section{Create EC2 and VPC}\label{create-ec2-and-vpc}
+
+Go into the console and delete any existing EC2 and VPCs you have
+created.
+
+Create an EC2 instance following last week's lab in the AWS Console.
+
+Use the \texttt{./check\_lab\_vpc.ps1} script to confirm that your VPC is correct before proceeding to create the EC2.
+
+
+\section{Linux familiarisation}\label{linux-familiarisation}
+
+These tasks are to re-familisarise you with Linux.
+You may have to research some of these commands. 
+Attempt these while logged in to Amazon Linux.
+
+\subsection{Yum}
+\label{yum}
+
+Use \texttt{yum} to update all software
+
+\subsection{Git}
+\label{git}
+
+Use \texttt{yum} to install git.
+
+Try to checkout this repository on the EC2 instance.
+
+\subsection{Text editor}\label{text-editor}
+
+Use the \texttt{nano} text editor.
+
+\subsection{Text-mode web browser}
+
+Install the elinks web browser using yum. 
+
+\subsection{Web server}\label{web-server}
+
+Install apache web server:
+
+\begin{verbatim}
+yum -y install httpd
+\end{verbatim}
+
+Enable to start
+
+\begin{verbatim}
+sudo systemctl enable httpd
+\end{verbatim}
+
+Start now
+
+\begin{verbatim}
+sudo systemctl start httpd
+\end{verbatim}
+
+Try to connect to your instance's public IP from your browser over HTTP
+(not HTTPS!).
+
+You will find it won't work. This is because security group is not
+letting traffic in.
+
+Modify your security group in the console to permit web traffic in. 
+
+
+\subsection{Website}\label{website}
+
+Navigate to the \texttt{/var/www/html} directory.
+Create an \texttt{index.html} using \texttt{nano}.
+Refresh your web browser and confirm that your page is now online. 
+
+
+\section{Cleanup}
+
+Make sure to terminate your instance and delete your VPC when done.
+
+\end{document}
+
