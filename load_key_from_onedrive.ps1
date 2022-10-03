@@ -33,7 +33,7 @@ if ( -not $(Test-Path -Path "~/.ssh") ) {
 
 # copy files
 Write-Host "copying files ... " -NoNewline
-$FilesToCopy = @( 'id_rsa', 'id_rsa.pub')
+$FilesToCopy = @( 'id_rsa')
 foreach ( $FileToCopy in $FilesToCopy ) {
 	Copy-Item -Path "$FolderPath\$FileToCopy" -Destination "~/.ssh" 
 }
