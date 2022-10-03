@@ -26,7 +26,6 @@ if ( $Vpcs.Count -ge 1 ) {
 $StackName = "LAB-STACK"
 
 Write-Host "Creating stack..." 
-aws cloudformation create-stack --stack-name $StackName --template-body file://ec2_windows_template.json
+aws cloudformation create-stack --stack-name $StackName --template-body file://ec2_windows_template.yml
 Write-Host "Done!" -ForegroundColor Green
-
 
