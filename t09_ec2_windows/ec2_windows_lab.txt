@@ -1,0 +1,25 @@
+# EC2 (WINDOWS) LAB INSTRUCTIONS
+
+0. Log in to the AWS Console
+1. Open PowerShell and cd into the cloud_architecture folder.
+2. Re-generate your key (./create_key_pair.ps1) script.
+3. Save your key to onedrive using (./save_key_to_onedrive.ps1) script.
+4. cd into this folder using cd *_ec2_windows
+5. Set up the lab VPC using ./ec2_windows_lab_vpc_setup.ps1
+6. Wait for this to complete!
+6a. Create a security group called LAB_SG that lets in RDP traffic [3389].
+7. Create a Windows Instance using:
+   - Name: LAB_INSTANCE
+   - OS: Windows Server 2022
+   - Key Pair: MAIN_KEY
+   - VPC: LAB_VPC
+   - Subnet: lab subnet from VPC
+   - Security Group: LAB_SG
+8. Launch instance and wait for running status
+9. Get Public IP and copy it somewhere.
+10.Use Actions > Security > Get Windows Password.
+11.Browse to C:\Users\yourname\.ssh, change PEM to All Files and choose id_rsa [not pub]
+12.Password will be shown below.
+13.Run Remote Desktop from start menu.
+14.Put it ip address, administrator as username and hit connect.
+
