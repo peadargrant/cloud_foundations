@@ -1,7 +1,7 @@
 # EC2 (WINDOWS) LAB INSTRUCTIONS
 
 0. Log in to the AWS Console
-1. Open PowerShell and cd into the cloud_architecture folder.
+1. Open PowerShell and cd into the cloud_foundations folder.
 2. Re-generate your key (./create_key_pair.ps1) script.
 3. Save your key to onedrive using (./save_key_to_onedrive.ps1) script.
 4. cd into this folder using cd *_ec2_windows
