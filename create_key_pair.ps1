@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# Creates and stores key pair from AWS
+# Creates and stores key pair locally and to AWS
 
 $KeyName="MAIN_KEY"
 $KeyFile="~/.ssh/id_rsa"
@@ -10,7 +10,7 @@ aws ec2 delete-key-pair --key-name $KeyName
 Write-Host "ok" -ForegroundColor Green
 
 Write-Host "creating local key pair ... " -NoNewline
-ssh-keygen -trsa -b2048 -mpem  
+ssh-keygen -trsa -b2048 -mpem  -N '""' 
 Write-Host "ok" -ForegroundColor Green
 
 Write-Host "importing key pair to AWS ... " -NoNewline
