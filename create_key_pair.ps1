@@ -19,5 +19,3 @@ Write-Host "ok" -ForegroundColor Green
 
 Write-Host "created SSH key pair on AWS" -ForegroundColor Green
 
-./save_key_to_onedrive.ps1
-
