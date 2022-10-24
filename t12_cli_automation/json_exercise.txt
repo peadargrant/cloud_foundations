@@ -1,0 +1,17 @@
+JSON PRACTICE EXERCISE
+======================
+
+For each JSON file, use Get-Content to load it.
+Pipe the resulting JSON text through ConvertFrom-Json to get PS objects.
+Use the dot notation to find the required value. 
+
+Example:
+$VpcInfo = Get-Content vpc.json | ConvertFrom-Json
+$VpcInfo.Vpc.VpcId [[ will print the VpcId ]]
+
+1.)
+In vpc.json get the value of DhcpOptionsId to be dopt-0e49fce64f2659c15.
+
+2.) 
+In vpc.json, get the value of AssociationId to be vpc-cidr-assoc-0ca97e5098c76d163.
+
