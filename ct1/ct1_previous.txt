@@ -1,0 +1,72 @@
+Cloud Foundations CT1. Answer all questions. Each question = 4 points.
+
+1.  What does the acronym SaaS stand for?
+
+2.  What does the acronym PaaS stand for?
+
+3.  What does the acronym IaaS stand for?
+
+4.  State the 5 characteristics of cloud computing services. (No
+    explanation necessary)
+
+5.  List the 3 key components of a Terms-Of-Service agreeemnt (1 word
+    each, no explanation required).
+
+6.  What does SSH stand for?
+
+7.  What TCP port does SSH run on?
+
+8.  SSH provides access to a [ graphical / command-line ] interface.
+    (Select one)
+
+9.  True or false: Windows Server cannot provide SSH access
+    to PowerShell.
+
+10. A user wishes to connect to a server at IP address 193.49.201.18.
+    Her username on her local PC is mary and her account on the remote
+    server is named “manager”. Write down the SSH command she should
+    type to connect.
+
+11. A user wishes to read json in a file data.json into Powershell data
+    structures in the variable $data. Write the PowerShell command(s)
+    they should type to achieve this.
+
+12. What protocol can be used to transfer files to/from a remote server
+    using SSH?
+
+13. S3 is an example of object / block / file storage? (Pick 1 of the
+    3 options)
+
+14. The AWS CLI has 2 sets of commands for working with S3. One set is
+    “s3”. What is the other?
+
+15. An S3 bucket named accounts holds an object named summary.txt. Write
+    down the S3 URI for this object.
+
+16. Is S3 PaaS or IaaS?
+
+17. What do the letters EC in AWS EC2 stand for?
+
+18. A virtual machine in EC2 is known as? (Answer is 1 word)
+
+19. Is AWS EC2 PaaS or IaaS?
+
+20. An AWS EC2 instance normally uses a virtual hard disk cloned from a
+    starting point. What is the starting point called? (Hint: A??)
+
+21. What CLI command will list out the instances running on your
+    account?
+
+22. What component is required to allow a VPC and its components to
+    access the internet?
+
+23. EC2 instances are launched into what VPC component?
+
+24. An EC2 instance has a public IP 3.25.102.19 and a private IP in its
+    subnet of 10.0.0.2. Which IP address (public or private) will be
+    displayed by the instance OS?
+
+25. Name the EC2 component that controls what traffic is allowed to flow
+    into / out of an EC2 instance.
+
+
