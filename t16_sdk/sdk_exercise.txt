@@ -1,0 +1,11 @@
+Exercise:
+--------
+
+1. Set up a queue and a bucket (and keep the names!)
+
+2. Run qprocessor.py with the names used
+
+3. Send messages to the queue
+
+4. Confirm that your bucket is filling with messages.
+
