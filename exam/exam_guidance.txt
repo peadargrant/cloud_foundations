@@ -1,0 +1,35 @@
+Cloud Foundations
+Exam advice
+
+Any item on the course is liable to be asked in any question anywhere in the exam. 
+
+Specific interest areas for study:
+
+1. Basics of cloud computing
+	(a)	5 characteristics required 
+	(b) Terms of service agreements: promises, limitations, obligations
+	(c) Capital vs Operational expenditure.
+	
+2. EC2
+	(a) Common CLI commands (describe-instances, describe-subnets, create-vpc)
+	(b) Setup of a VPC + components to support EC2 instances
+	(c) Security group ports [SSH, RDP, HTTP, HTTPS].
+	
+3. Platform-as-a-service
+	(a) IaaS vs PaaS: examples, differences. 
+	(b) IaaS + PaaS integration = credentials. 
+	(c) Custom service to start on Linux / Windows. 
+	
+4. Security [to come]
+	(a) Shared responsibility model 
+	(b) Issues with setting plain text password for ec2-user
+	(c) Account roles. 
+	
+Advice:
+
+1.	Avoid long paragraphs of text.
+2.	Use diagram if it helps.
+3.	Use bullet points where a diagram won't work! [like flash cards]
+4.	Number each question and each part. 
+5. 	Address the question being asked!
+
