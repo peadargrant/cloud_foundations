@@ -32,10 +32,14 @@ Your script must be called `cloud_setup.ps1`.
 You should provide the commands you used to setup the EC2 instance in the file 
 `instance_setup.sh`.
 
-### Demo (20%)
+### Demo (10%)
 
 In the file `demo.txt` you should provide the instructions necessary to demonstrate your system. 
 Aim to be short, clear, simple instructions.
+
+### Working screenshot (10%)
+
+Provide a `screenshot.png` file demonstrating your solution working. 
 
 ### Teardown (20%)
 
@@ -43,7 +47,7 @@ Write a Powershell script to remove the resources that you created named `teardo
 
 ## Submission
 
-Place all files required above plus any additional needed for your solution in a ZIP folder named exactly `cloud_foundations_ca1.zip`.
+Place all files required above plus any additional needed for your solution in a ZIP folder named exactly `ca1.zip`.
 Use `ca1_checks.ps1` to confirm your ZIP file meets requirements.
 
 ## Feedback

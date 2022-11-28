@@ -2,7 +2,7 @@
 # Peadar Grant
 
 # Zip file name
-$zipFileName = '.\cloud_foundations_ca1.zip'
+$zipFileName = '.\ca1.zip'
 
 # check for ZIp file itself
 Write-Host "checking for $zipFileName ... " -NoNewLine
@@ -23,7 +23,7 @@ $Entries = $zipFile.Entries
 $zipFile.Dispose() # otherwise will stay open
 
 # list of required files
-$requiredFiles = @( 'cloud_setup.ps1', 'teardown.ps1', 'instance_setup.sh', 'design.pdf','demo.txt')
+$requiredFiles = @( 'cloud_setup.ps1', 'teardown.ps1', 'instance_setup.sh', 'design.pdf','demo.txt','screenshot.png')
 
 # check for each file
 $missingFiles = 0
