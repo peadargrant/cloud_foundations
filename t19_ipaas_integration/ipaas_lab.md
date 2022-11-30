@@ -1,23 +1,29 @@
-Tasks
-=====
+# Tasks
 
-0. Ensure your AWS environment is working.
+1. Use `setup.ps1` to setup EC2 instance, Bucket and Queue.
 
-1. Use `ipaas_lab_setup.ps1` to setup basic VPC, subnet, gateway, route, security group.
+2. Copy the Queue URL, Bucket name and Instance Public IP to a text file.
 
-2. Create a queue  named `labq`
+3. Create a Role for EC2 instances with Administrator permissions. 
 
-3. Create an Amazon Linux EC2 instance **with the instance profile**.
+4. Use SFTP to transfer the qprocessor.py to the instance.
+   sftp ec2-user@publicip
+   put qprocessor.py
+   exit
 
-4. Use `git` on the instance to clone *this* repository. (Use yum to install git)
+5. Connect to the instance using SSH. 
 
-5. Change dir into the git repo.
+6. Set region using aws configure [don't enter keys, just hit enter]
+
+7. Try a command like aws ec2 describe-vpcs .
+
+8. Install the boto3 library for python3 by using:
+	sudo pip3 install boto3 
 
 6. Run the `qprocessor.py` program so that it's printing "no messages".
-   Install any additional package(s) you need using `yum` and/or `pip3`.
-   You will also need to set AWS config ( in the file /home/ec2-user/.aws/config )
 
 7. Send some messages to your queue from your lab desktop - these should be received.
+   Also check that they are appearing in the bucket.
 
 8. Stop your `qprocessor.py`. (Ctrl-C)
 
