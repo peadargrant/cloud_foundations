@@ -37,3 +37,5 @@
 
 12. Send messages to your queue. Do they appear in the file `qmessages.txt`?
 
+13. Empty bucket:
+	aws s3 rm --recursive s3://lab-bucket-m0teja7366ba/
