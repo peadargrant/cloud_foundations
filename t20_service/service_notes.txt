@@ -1,0 +1,15 @@
+# System service uses
+
+- interacting with cloud, hardware, local or on-pc resources
+- shouldn't be closed accidentally
+
+# Suitability
+
+Program must:
+- not have a GUI (must be text-based input/output if any)
+- not need any input from the system console (keyboard, mouse, display)
+- be able to run non-interactives
+- run continuously (i.e. not finish)
+
+# How this works
+
