@@ -9,3 +9,5 @@ Write-Host 'waiting for resources to create... ' -NoNewline
 aws cloudformation wait stack-create-complete --stack-name $StackName
 Write-Host 'Done!'
 
+./template_outputs.ps1
+
