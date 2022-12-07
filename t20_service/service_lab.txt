@@ -16,9 +16,13 @@ Lab instructions
 	--iam-instance-profile Name=ec2instance
 8. Re-try running qprocessor.py script.
 9. Modify qprocessor.service.txt w/ correct Queue URL & Bucket Name.
-10. Re-name qprocessor.service.txt to qprocessor.service.
+10. Re-name qprocessor.service.txt to qprocessor.service. [mv]
 11. Move qprocessor.service to /etc/systemd/system 
 12. Re-load systemd files [systemctl daemon-reload]
 13. Enable qprocessor service [systemctl enable qprocessor]
 14. Start qprocessor.service [systemctl start qprocessor]
 15. Send message to queue and confirm file arrives in S3 bucket. 
+16. Use ./teardown.ps1 to remove the environment. 
+17. Delete the instance profile.
+18. Delete the policy from the role. 
+19. Delete the role. 
